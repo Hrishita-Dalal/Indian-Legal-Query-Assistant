@@ -1,8 +1,8 @@
-# Indian Legal Query Assistant ⚖️
+# Indian Legal Query Assistant
 
 An AI-powered legal assistant for Indian constitutional law, criminal procedure (CrPC), and penal code (IPC) queries, combining retrieval-augmented generation (RAG) with semantic search.
 
-## Features ✨
+## Features
 - Answers questions about:
   - Indian Constitution articles
   - Criminal Procedure Code (CrPC)
@@ -16,7 +16,7 @@ An AI-powered legal assistant for Indian constitutional law, criminal procedure 
   - Conceptual queries ("right to privacy")
   - Comparative analysis ("Difference between IPC 299 and 300")
 
-## Tech Stack 🛠️
+## Tech Stack
 | Component               | Technology |
 |-------------------------|------------|
 | NLP                     | Hugging Face Transformers, Sentence-Transformers |
@@ -26,3 +26,6 @@ An AI-powered legal assistant for Indian constitutional law, criminal procedure 
 | PDF Processing          | PyMuPDF (fitz) |
 | Backend Framework       | Python 3.10+ |
 | GPU Acceleration        | CUDA 11.7 |
+
+## Output
+![image](https://github.com/user-attachments/assets/ff18e653-fbf3-472e-a1cf-07afa56470e5)
