@@ -14,13 +14,6 @@ import ipywidgets as widgets
 from IPython.display import display, clear_output
 import urllib.request
 
-!apt install shellinabox &> /dev/null
-!nohup shellinaboxd --disable-ssl --no-beep --port=8000 --css /etc/shellinabox/options-enabled/00_White\ On\ Black.css -s "/:root:root:/root:/bin/bash -c bash -i" &> /dev/null &
-!yes | /usr/local/sbin/unminimize &> /dev/null
-
-from google.colab.output import serve_kernel_port_as_iframe
-serve_kernel_port_as_iframe(8000)
-
 """### Data Loading"""
 
 def load_legal_documents():
@@ -38,7 +31,7 @@ def load_legal_documents():
             data = json.load(f)
         return [f"Q: {item['question']}\nA: {item['answer']}" for item in data]
 
-    # Load all sources equally
+    # Load all sources
     corpus.extend(load_pdf("Constitution_English.pdf"))
     corpus.extend(load_json_dataset("constitution_qa.json"))
     corpus.extend(load_json_dataset("crpc_qa.json"))
@@ -50,19 +43,6 @@ def load_legal_documents():
 corpus = load_legal_documents()
 
 """### Embedding Model Setup"""
-
-# Clear HuggingFace cache to prevent issues
-cache_dir = os.path.expanduser("~/.cache/huggingface/hub")
-if os.path.exists(cache_dir):
-    for item in os.listdir(cache_dir):
-        item_path = os.path.join(cache_dir, item)
-        try:
-            if os.path.isfile(item_path):
-                os.unlink(item_path)
-            elif os.path.isdir(item_path):
-                shutil.rmtree(item_path)
-        except Exception as e:
-            print(f"Failed to delete {item_path}. Reason: {e}")
 
 # Initialize embedding model
 embedder = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
