@@ -32,10 +32,10 @@ def load_legal_documents():
         return [f"Q: {item['question']}\nA: {item['answer']}" for item in data]
 
     # Load all sources
-    corpus.extend(load_pdf("Constitution_English.pdf"))
-    corpus.extend(load_json_dataset("constitution_qa.json"))
-    corpus.extend(load_json_dataset("crpc_qa.json"))
-    corpus.extend(load_json_dataset("ipc_qa.json"))
+    corpus.extend(load_pdf("path_to_Constitution_English.pdf"))
+    corpus.extend(load_json_dataset("path_to_constitution_qa.json"))
+    corpus.extend(load_json_dataset("path_to_crpc_qa.json"))
+    corpus.extend(load_json_dataset("path_to_ipc_qa.json"))
 
     print(f"📚 Loaded {len(corpus)} legal documents")
     return corpus
